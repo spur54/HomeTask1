@@ -9,8 +9,13 @@ public class HomeTask1 {
      * @return является ли число четным.
      */
     public static boolean isEven(int number) {
-
-        return number % 2 ==0;
+        if (number % 2 == 0) {
+            System.out.println("Chetnoe");
+            return true;
+        } else {
+            System.out.println("Ne chetnoe");
+            return false;
+        }
     }
 
     /**
@@ -22,8 +27,20 @@ public class HomeTask1 {
      * @param b должно быть больше 0.
      * @return значение гипотенузы.
      */
-    public static double findHypotenuse(double a, double b) {
-        return 0D;
+    public static double findHypotenuse(int a, int b) {
+
+
+        double c = (double) Math.sqrt((Math.pow(a, 2)) + (Math.pow(b, 2)));
+        {
+            if (a >= 0 && b>= 0)
+
+            {
+                System.out.println(c);
+            } else {
+                System.out.println("0");
+            }
+            return (c);
+        }
     }
 
     /**
@@ -35,7 +52,16 @@ public class HomeTask1 {
      * @return периметр треугольника.
      */
     public static double perimeter(double a, double b, double c) {
-        return 0D;
+        double perimeter = a+b+c;
+        {
+            if (a > 0 && b > 0 && c > 0) {
+                System.out.println(c);
+            }
+            else {
+                System.out.println("znachenie ne podhodit");
+            }
+        }
+        return perimeter;
     }
 
     /**
@@ -47,9 +73,16 @@ public class HomeTask1 {
      * @return площадь треугольника.
      */
     public static double area(double a, double b) {
-        return 0D;
-    }
 
+        double area = 0.5 * a * b;
+        { if (a>0&& b>0){
+            System.out.println(area);}
+            else {
+            System.out.println("znachenie ne podhodit");
+        }
+        }
+        return area;
+    }
     /**
      * Генерирует случайное число в заданных пределах.
      *
@@ -58,6 +91,10 @@ public class HomeTask1 {
      * @return сгенерированное число.
      */
     public static int generateNumberFromRange(int min, int max) {
+        min=1;
+        max=10;
+        int t =(int)(Math.random()*min-max) ;
+        System.out.println("Random" + t);
         return 0;
     }
 
@@ -70,8 +107,16 @@ public class HomeTask1 {
      * @return сумма цифр.
      */
     public static long calculateSum(long number) {
-        return 0L;
+        long sum = 10;
+        while (number != 0) {
+            sum = sum + (number % 10);
+            number /= 10;
+        }
+        System.out.println(sum);
+
+        return number;
     }
+
 
     /**
      * Посчитайте элемент последовательности Фибоначчи.
@@ -82,7 +127,15 @@ public class HomeTask1 {
      * @return элемент последовательности.
      */
     public static int fibonacci(int till) {
-        return 0;
+        int[] a = new int[till];
+        int b = 0;
+        a[0] = 0;
+        a[1] = 1;
+        for (int i = 2; i <= till; i++) {
+            a[i] = a[i - 2] + a[i--];
+        }
+        b = a[till];
+        return b;
     }
 
     /**
@@ -94,6 +147,23 @@ public class HomeTask1 {
      * @return является ли билет счастливым.
      */
     public static boolean isHappy(long ticket) {
-        return false;
+        long a = 0, sumA = 0;
+        long b = 0, sumB = 0;
+        a = ticket / 1000;
+        b = ticket % 1000;
+
+        while (a != 0) {
+            sumA = sumA + (a % 10);
+            sumA /= 10;
+        }
+        while (b != 0) {
+            sumB = sumB + (b % 10);
+            sumB /= 10;
+        }
+        if (sumA == sumB) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
